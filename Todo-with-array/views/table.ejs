@@ -16,6 +16,7 @@
                     <th>Srno</th>
                     <th>Name</th>
                     <th>Phone</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,6 +30,9 @@
                         </td>
                         <td>
                             <%= val.phone %>
+                        </td>
+                        <td>
+                            <a href="/deleteuser?deleteId=<%=val.id%>"> Delete</a>
                         </td>
 
                     </tr>
