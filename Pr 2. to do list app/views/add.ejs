@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+</head>
+
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    div {
+        background-color: #bfe6e9;
+        padding: 3%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 460px;
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: #33686c;
+        font-size: 35px;
+    }
+
+    table {
+        margin: 0 auto;
+        border-spacing: 0;
+        width: 100%;
+    }
+
+    td {
+        padding: 10px;
+        font-size: 19px;
+
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 17px;
+    }
+    input[type="date"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        color: #6c6b6b;
+        border-radius: 5px;
+        font-size: 17px;
+    }
+
+    input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #15646a;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+
+    }
+
+    input[type="submit"]:hover {
+        background-color: #2d979e;
+    }
+    a {
+        display: block;
+        margin-top: 15px;
+        color: #2d979e;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<body>
+    <div align="center">
+        <h2>Add Task</h2>
+        <form method="post" action="adduser">
+            <table>
+                <tr>
+                    <td>Task</td>
+                    <td><input type="text" name="usertask" placeholder="Enter Task"></td>
+                </tr>
+                <tr>
+                    <td>Status</td>
+                    <td><input type="text" name="userstatus" placeholder="Enter Status"></td>
+                </tr>
+                <tr>
+                    <td> Dedline</td>
+                    <td><input type="date" name="userdate" placeholder="Enter Deadline"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td> <input type="submit"></td>
+                </tr>
+            </table>
+            <a href="/">View</a>
+        </form>
+    </div>
+</body>
+
+</html>
