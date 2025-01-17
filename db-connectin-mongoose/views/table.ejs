@@ -19,12 +19,16 @@
                     <th>name</th>
                     <th>email</th>
                     <th>password</th>
+                    <th>Gender</th>
+                    <th>Hobby</th>
+                    <th>City</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <% allrecord.map((val, i)=> { %>
                     <tr>
+                        
                         <td>
                             <%= val?.id %>
                         </td>
@@ -38,8 +42,17 @@
                             <%= val?.userpassword %>
                         </td>
                         <td>
-                            <a href="/deleteuser?did=<%= val.id %>"> Delete</a>
-                            <a href="edituser?eid=<%= val.id %>"> Edit</a>
+                            <%= val?.gender %>
+                        </td>
+                        <td>
+                            <%= val?.hobby %>
+                        </td>
+                        <td>
+                            <%= val?.city %>
+                        </td>
+                        <td>
+                            <a href="/deleteuser?did=<%= val?.id %>"> Delete</a>
+                            <a href="/edituser?eid=<%= val?.id %>"> Edit</a>
                         </td>
 
                     </tr>

@@ -10,7 +10,7 @@
 <body>
     <div align="center">
         <h1>Add user</h1>
-        <form method="post" action="/adduser">  
+        <form method="post" action="/adduser">
             <table>
                 <tr>
                     <td>Name:-</td>
@@ -25,13 +25,37 @@
                     <td><input type="password" name="password" /></td>
                 </tr>
                 <tr>
+                    <td> Gender:-</td>
+                    <td>
+                        <input type="radio" name="gender" value="male" /> Male
+                        <input type="radio" name="gender" value="female" /> Female
+                    </td>
+                </tr>
+                <tr>
+                    <td>Hobby:-</td>
+                    <td>
+                        <input type="checkbox" name="hobby" value="reading" /> Reading
+                        <input type="checkbox" name="hobby" value="swimming" /> Swimming
+                        <input type="checkbox" name="hobby" value="dancing" /> Dancing
+                    </td>
+                </tr>
+                <tr>
+                    <td>City:-</td>
+                    <td>
+                        <input type="radio" name="city" value="delhi" /> Delhi
+                        <input type="radio" name="city" value="mumbai" /> Mumbai
+                        <input type="radio" name="city" value="chennai" /> Chennai
+                    </td>
+                </tr>
+                
+                <tr>
                     <td></td>
                     <td> <input type="submit" /></td>
                 </tr>
             </table>
             <a href="viewuser">view</a>
         </form>
-        
+
     </div>
 </body>
 

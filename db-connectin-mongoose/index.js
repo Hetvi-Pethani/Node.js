@@ -19,11 +19,14 @@ app.get('/', (req, res) => {
 })
 
 app.post('/adduser', (req, res) => {
-    const { name, email, password } = req.body;
+    const { name, email, password, gender, hobby, city} = req.body;
     UserModel.create({
         username: name,
         useremail: email,
         userpassword: password,
+        gender: gender,
+        hobby: hobby,
+        city: city
     }).then((record) => {
         console.log(record);
         console.log('User created successfully');
@@ -71,6 +74,22 @@ app.get('/edituser', (req, res) => {
             console.log(err);
             return false;
         })
+})
+
+
+app.post('/updateuser', (req, res) => {
+    const { editid, name, email, password } = req.body;
+    UserModel.findByIdAndUpdate(editid, {
+        username: name,
+        useremail: email,
+        userpassword: password
+    }).then((user) => {
+        console.log('record update');
+        return res.redirect('/viewuser');
+    }).catch((err) => {
+        console.log(err);
+        return false;
+    })
 })
 
 app.listen(port, (err) => {
