@@ -15,21 +15,19 @@ const UserModel = require('./models/UserModel');
 app.use(express.urlencoded());
 
 app.get('/', (req, res) => {
-    return res.render('form');
+    return res.render('add');
 })
 
 app.post('/adduser', (req, res) => {
-    const { name, email, password, gender, hobby, city} = req.body;
+    const { bookname, description, authorname, price } = req.body;
     UserModel.create({
-        username: name,
-        useremail: email,
-        userpassword: password,
-        gender: gender,
-        hobby: hobby,
-        city: city
+        bookname: bookname,
+        description: description,
+        authorname: authorname,
+        price: price,
     }).then((record) => {
         console.log(record);
-        console.log('User created successfully');
+        console.log('User added');
         return res.redirect('/');
     }).catch((err) => {
         console.log(err);
@@ -40,8 +38,8 @@ app.post('/adduser', (req, res) => {
 app.get('/viewuser', (req, res) => {
     UserModel.find({})
         .then((record) => {
-            return res.render('table', {
-                allrecord: record
+            return res.render('view', {
+                record: record
             })
         }).catch((err) => {
             console.log(err);
@@ -49,32 +47,43 @@ app.get('/viewuser', (req, res) => {
         })
 })
 
+app.get('/deleteuser', (req, res) => {
+    let id = req.query.did;
+    UserModel.findByIdAndDelete(id)
+        .then((record) => {
+            console.log('record delete');
+            return res.redirect('/viewuser');
+        }).catch((err) => {
+            console.log(err);
+            return false;
+        })
+})
 
-
-
-
-app.get('/edituser', (req, res) => {
+app.get ('/edituser', (req, res) => {
     let id = req.query.eid;
     UserModel.findById(id)
-        .then((single) => {
-            return res.render('edit', {
-                single
-            })
-        }).catch((err) => {
-            console.log(err);
-            return false;
+    .then((single) => {
+        return res.render('edit', {
+            single
         })
+    }).catch ((err) => {
+        console.log(err);
+        return false;
+    })
 })
 
-
 app.post('/updateuser', (req, res) => {
-    const { editid, name, email, password } = req.body;
+    const { editid, bookname, description, authorname, price } = req.body;
+
     UserModel.findByIdAndUpdate(editid, {
-        username: name,
-        useremail: email,
-        userpassword: password
-    }).then((user) => {
-        console.log('record update');
+
+        bookname: bookname,
+        description: description,
+        authorname: authorname,
+        price: price
+
+    }).then((record) => {
+        console.log('user update');
         return res.redirect('/viewuser');
     }).catch((err) => {
         console.log(err);
@@ -89,5 +98,3 @@ app.listen(port, (err) => {
     }
     console.log(`Server is running on port ${port}`);
 })
-
-

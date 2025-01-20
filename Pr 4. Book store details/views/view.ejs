@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        color: #75a7dc;
+        margin-bottom: 20px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 60%;
+        margin: 20px auto;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    th,
+    td {
+        text-align: left;
+        padding: 10px;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #007BFF;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #e9ecef;
+    }
+
+    a {
+        color: #007BFF;
+        text-decoration: none;
+        padding: 5px 10px;
+        border: 1px solid #007BFF;
+        border-radius: 5px;
+        margin-right: 5px;
+        display: inline-block;
+    }
+
+    a:hover {
+        background-color: #007BFF;
+        color: white;
+    }
+
+    .container {
+        text-align: center;
+        padding: 20px;
+    }
+
+    .add-btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 15px;
+        background-color: #28a745;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .add-btn:hover {
+        background-color: #218838;
+    }
+</style>
+
+<body>
+    <div align="center">
+        <h1>View user</h1>
+        <table border="1" cellpadding="5" cellspacing="0">
+            <tr>
+                <td>Book name</td>
+                <td>Description</td>
+                <td>Price</td>
+                <td>Author</td>
+                <td>Action</td>
+            </tr>
+            <% record.map ((val,index)=> { %>
+                <tr>
+                    <td>
+                        <%= val.bookname %>
+                    </td>
+                    <td>
+                        <%= val.description %>
+                    </td>
+                    <td>
+                        <%= val.price %>
+                    </td>
+                    <td>
+                        <%= val.authorname %>
+                    </td>
+                    <td>
+                        <a href=" deleteuser?did=<%= val?.id %>">Delete</a>
+                        <a href=" edituser?eid=<%= val?.id %>">Edit</a>
+
+                    </td>
+                </tr>
+
+                <% }) %>
+        </table>
+        <a href="/">Add</a>
+    </div>
+</body>
+
+</html>
