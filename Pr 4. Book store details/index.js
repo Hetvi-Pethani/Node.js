@@ -73,9 +73,9 @@ app.get ('/edituser', (req, res) => {
 })
 
 app.post('/updateuser', (req, res) => {
-    const { editid, bookname, description, authorname, price } = req.body;
+    const { id, bookname, description, authorname, price } = req.body;
 
-    UserModel.findByIdAndUpdate(editid, {
+    UserModel.findByIdAndUpdate(id, {
 
         bookname: bookname,
         description: description,
