@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div align="center">
+        <h1>Edit user</h1>
+        <form method="post" action="/updateuser" enctype="multipart/form-data">
+            <input type="hidden" name="editid" value="<%= single?.id %>">
+            <table>
+                <tr>
+                    <td>Name:-</td>
+                    <td><input type="text" name="name" value="<%= single?.username %>" /></td>
+                </tr>
+                <tr>
+                    <td>email:-</td>
+                    <td> <input type="email" name="email" value="<%= single?.useremail %>" /></td>
+                </tr>
+                <tr>
+                    <td>Password:-</td>
+                    <td><input type="password" name="password" value="<%= single?.userpassword %>" /></td>
+                </tr>
+                <tr>
+                    <td> Gender:-</td>
+                    <td>
+                        <input type="radio" <% if (single?.gender=="male" ) {%> checked <% } %> name="gender"
+                            value="male" > Male
+                            <input type="radio" <% if (single?.gender=="female" ){%>checked <%} %> name="gender"
+                                value="female" > Female
+                    </td>
+                </tr>
+                <tr>
+                    <td>Hobby:-</td>
+                    <td>
+                        <input type="checkbox" name="hobby" value="reading" <% if (single?.hobby?.includes('reading')) {
+                            %> checked <% } %> Reading
+                            <input type="checkbox" name="hobby" value="swimming" <% if
+                                (single?.hobby?.includes('swimming')) { %> checked <% } %> /> Swimming
+                                <input type="checkbox" name="hobby" value="dancing" <% if
+                                    (single?.hobby?.includes('dancing')) { %> checked <% } %> /> Dancing
+                    </td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td>
+                        <select name="city">
+                            <option value="">Select City</option>
+                            <% let cities = ["surat", "vadodara", "ahemdabad", "mumbai"]; %>
+                            <% cities.forEach(c => { %>
+                                <option value="<%= c %>" <%= single?.city === c ? "selected" : "" %>><%= c %></option>
+                            <% }); %>
+                        </select>
+                    </td>
+                </tr>
+                <tr> 
+                    <td>File:-</td>
+                    <td>
+                        <input type="file" name="image" />
+                        <img src ="<%= single?.image %>" width="100" />
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td> <input type="submit" /></td>
+                </tr>
+            </table>
+            <a href="/viewuser">view</a>
+        </form>
+
+    </div>
+</body>
+
+</html>

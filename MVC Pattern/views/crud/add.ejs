@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h2>Add User</h2>
+        <form action="/crud/insertRecord" method="post" enctype="multipart/form-data">
+            <table>
+                <tr>
+                    <td>Name:-</td>
+                    <td> <input type="text" name="name"  placeholder="Enter your name"></td>
+                </tr>
+                <tr>
+                    <td>Email:-</td>
+                    <td> <input type="email" name="email" placeholder="Enter your email"></td>
+                </tr>
+                <tr>
+                    <td>Password:-</td>
+                    <td> <input type="password" name="password" placeholder="Enter your password"></td>
+                </tr>
+                <tr>
+                    <td>Gender:-</td>
+                    <td> <input type="radio" name="gender" value="male">Male
+                        <input type="radio" name="gender" value="female">Female
+                    </td>
+                </tr>
+                <tr>
+                    <td>Hobby:-</td>
+                    <td> <input type="checkbox" name="hobby" value="reading">Reading
+                        <input type="checkbox" name="hobby" value="swimming">Swimming
+                        <input type="checkbox" name="hobby" value="dancing">Dancing
+                    </td>
+                </tr>
+                <tr>
+                    <td>City:-</td>
+                    <td>
+                        <select name="city">
+                            <option>---select City---</option>
+                            <option value="delhi">Delhi</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="chennai">Chennai</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>File:-</td>
+                    <td>
+                        <input type="file" name="avtar">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <a href="/crud">Crud</a>
+    </div>
+
+</body>
+
+</html>
