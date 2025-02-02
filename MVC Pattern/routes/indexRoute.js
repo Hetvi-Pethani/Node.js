@@ -3,14 +3,11 @@ const express = require('express');
 const routes = express.Router();
 
 routes.get('/', (req, res) => {
-    
-    return res.render('index');
+    return res.render('login')
 })
-routes.use('/crud', require('../routes/crudRoute'));
+
+routes.use('/crud', require('./crudRoute'));
+
 
 
 module.exports = routes;
-
-
-
-

@@ -9,7 +9,7 @@
 
 <body>
     <div align="center">
-        <h2>View user</h2>
+        <h2>View User</h2>
         <table border="1">
             <thead>
                 <tr>
@@ -21,10 +21,12 @@
                     <td>Hobby</td>
                     <td>City</td>
                     <td>Image</td>
+                    <td>Action</td>
                 </tr>
             </thead>
+
             <tbody>
-                <% record.map ((val, index)=> { %>
+                <% record.map((val,index)=>{ %>
                     <tr>
                         <td>
                             <%= val?.id %>
@@ -48,10 +50,10 @@
                             <%= val?.city %>
                         </td>
                         <td>
-                            <img src="<%= val?.image %>" alt="avatar">
+                            <img src="<%= val?.image %>" width="100">
                         </td>
                         <td>
-                            <a href="/crud/deleterecord?id<%= val?.id %>">Delete</a>
+                            <a href="/crud/deleterecord?id=<%= val?.id %>">Delete</a>
                         </td>
                     </tr>
                     <% }) %>
