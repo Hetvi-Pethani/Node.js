@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(`mongodb://localhost/crud`)
+mongoose.connect(`mongodb://localhost/blog`)
 
 const db = mongoose.connection;
 
