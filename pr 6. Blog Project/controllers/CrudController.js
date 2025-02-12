@@ -8,7 +8,7 @@ const path = require('path');
 
 
 const loginPage = (req, res) => {
-    if (req.cookies.auth) {
+    if (req.cookies?.auth) {
         return res.redirect('/dashboard');
     }
     return res.render('login');
@@ -119,7 +119,7 @@ const deleteUser = async (req, res) => {
         const userId = req.query.id;
         const user = await ProUser.findById(userId);
         if (!user) {
-            return res.status(404).send('User not found');
+            return('User not found');
         }
 
         if (user.image) {

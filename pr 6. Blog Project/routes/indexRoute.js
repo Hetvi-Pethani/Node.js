@@ -17,8 +17,8 @@ const st = multer.diskStorage({
 })
 
 const fileUpload = multer({ storage: st }).fields([
-    { name: 'imageFile', maxCount: 1 },   
-    { name: 'audioFile', maxCount: 1 }   
+    { name: 'imageFile' },   
+    
   ]);
 
 
