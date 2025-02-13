@@ -21,9 +21,9 @@ const registerPage = (req, res) => {
 
 const registerUser = async (req, res) => {
     try {
-        const { pname, email, password } = req.body;
+        const { name, email, password } = req.body;
         let user = await UserModel.create({
-            pname: pname,
+            name: name,
             email: email,
             password: password
         });
