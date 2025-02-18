@@ -153,12 +153,12 @@ const updateUser = async (req, res) => {
 
 const updateData = async (req, res) => {
     try {
-        let id = req.body.editid;
+        let id = req.body?.editid;
         let old = await ProUser.findById(id);
 
         if (req.file) {
-            if (old.image) {
-                fs.unlinkSync(old.image);
+            if (old?.image) {
+                fs.unlinkSync(old?.image);
             }
 
             await ProUser.findByIdAndUpdate(id, {
@@ -168,7 +168,7 @@ const updateData = async (req, res) => {
                 unit: req.body?.unit,
                 pid: req.body?.pid,
                 sqty: req.body?.sqty,
-                image: req.file.path,
+                image: req.body?.path,
 
             });
         } else {
@@ -179,8 +179,7 @@ const updateData = async (req, res) => {
                 unit: req.body?.unit,
                 pid: req.body?.pid,
                 sqty: req.body?.sqty,
-                image: old?.image,
-
+                image: req.file?.path,
             });
         }
         console.log("Record updated");
