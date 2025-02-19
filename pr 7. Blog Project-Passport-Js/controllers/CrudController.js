@@ -19,7 +19,7 @@ const registerPage = (req, res) => {
 
 
 const registerUser = async (req, res) => {
-    try {
+    try { 
         const { name, email, password } = req.body;
         let user = await UserModel.create({
             name: name,
@@ -46,6 +46,7 @@ const loginUser = async (req, res) => {
 
 
 const logout = (req, res) => {
+    
     req.logout((err) => {
         if (err) {
             console.log(err);
