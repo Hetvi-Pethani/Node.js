@@ -72,8 +72,9 @@ const updateUser = async (req, res) => {
 const updateData = async (req, res) => {
     try {
         let id = req.body.id;
+        const editid = req.body?.editid;
         if (req.file) {
-            let old = await UserModel.findById(id);
+            let old = await UserModel.findById(editid);
             fs.unlinkSync(old?.image)
             await UserModel.findByIdAndUpdate(editid, {
                 name: req?.body?.name,
