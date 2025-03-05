@@ -9,10 +9,11 @@ const loginPage = (req, res) => {
     }
     return res.render('login');
 }
+
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
-        let user = await Users.findOne({ email: email });
+        let user = await User.findOne({ email: email });
         if (!user || user.password != password) {
             console.log('Invalid email or password');
             return res.redirect('/');
@@ -56,5 +57,5 @@ const logoutUser = (req, res) => {
     return res.redirect('/');
 }
 module.exports = {
-    registerPage, loginPage, registerUser, dashboardPage,productPage , aboutPage, logoutUser, loginUser
+    registerPage, loginPage, registerUser, dashboardPage, productPage, aboutPage, logoutUser, loginUser
 }
