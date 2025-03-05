@@ -96,14 +96,14 @@ const forgotPassword = async (req, res) => {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: 'rohitt3891@gmail.com',
-                pass: 'hryl cklt orhx rqkh'
+                user: 'hetvi.pethani75@gmail.com',
+                pass: '*hetvi#775@pethani'
             }
         });
 
         // Email options
         const mailOptions = {
-            from:'rohitt3891@gmail.com' ,
+            from:'hetvi.pethani75@gmail.com' ,
             to: useremail,
             subject: 'OTP for password reset',
             html: `<h2 style="color: #007BFF;">Your OTP is: ${otp}</h2>`
