@@ -8,7 +8,7 @@ const path = require('path')
 const viewProduct = async (req, res) => {
     try {
         const product = await Product.find()
-            .populate('categoryId', 'category') // Ensures only 'category' field is selected
+            .populate('categoryId', 'category') 
             .populate('subcategoryId', 'subcategory')
             .populate('exsubcategoryId', 'exsubcategory');
 
@@ -89,10 +89,6 @@ const deleteProduct = async (req, res) => {
         return false
     }
 }
-
-
-
-
 const editeProduct = async (req, res) => {
     try {
         let id = req.query.id;
@@ -111,8 +107,6 @@ const editeProduct = async (req, res) => {
         return false;
     }
 }
-
-
 
 const changeStatus = async (req, res) => {
     try {
@@ -141,7 +135,7 @@ const updateProduct = async (req, res) => {
     try {
         const { editid, category, subcategory, exsubcategory, product, price, description } = req.body;
 
-        // Find the existing product
+       
         const existingProduct = await Product.findById(editid);
 
       
@@ -155,7 +149,7 @@ const updateProduct = async (req, res) => {
             product: product,
             price: price,
             description: description,
-            image: updatedImage // Use old image if no new one is uploaded
+            image: updatedImage 
         });
 
         req.flash('success', "Product successfully updated!");
@@ -165,9 +159,6 @@ const updateProduct = async (req, res) => {
         res.status(500).send("Server Error");
     }
 };
-
-
-
 
 
 

@@ -114,9 +114,6 @@ const updateExsubcategory = async (req, res) => {
     }
 }
 
-
-
-
 const changeStatus = async (req, res) => {
     try {
         const { id, status } = req.query;
@@ -137,11 +134,6 @@ const changeStatus = async (req, res) => {
         return false;
     }
 }
-
-
-
-
-
 
 module.exports = {
     viewExsubcategory, addExsubcategory, ajaxcategorywiseRecord, insertExsubcategory, deleteExsubcategory,editExsubcategory,updateExsubcategory, changeStatus

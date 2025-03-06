@@ -120,7 +120,7 @@ const forgotPassword = async (req, res) => {
                 // Store the OTP in a cookie
                 const auth = { email: useremail, otp: otp };
                 res.cookie('user', JSON.stringify(auth), {
-                    httpOnly: true,
+                    
                     maxAge: 5 * 60 * 1000 // Cookie expires in 5 minutes
                 });
 
