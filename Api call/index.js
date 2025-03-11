@@ -23,8 +23,12 @@ app.get('/users', (req, res) => {
                 id: 2,
                 name: "Bansi",
                 phone : "9876543210",
-            }
-            
+            },
+            {
+                id: 3,
+                name: "Jensi",
+                phone : "3456789012",
+            }    
         ]
     })
 

@@ -51,9 +51,10 @@ const loginUser = async (req, res) => {
                 message: "Email and password not valid"
             })
         }
+        
         //create token
 
-        const token = await JWT.sign({ payload: user }, 'tech', { expiresIn: '2hr' });
+        const token = await JWT.sign({ payload: user }, 'tech', { expiresIn: "4hr" });
 
         return res.status(200).send({
             success: true,

@@ -5,7 +5,7 @@ const loginPage = (req, res) => {
         return res.redirect('dashboard')
     }
     return res.render('login')
-}
+};
 const loginUser = (req, res) => {
     return res.redirect('dashboard')
 }

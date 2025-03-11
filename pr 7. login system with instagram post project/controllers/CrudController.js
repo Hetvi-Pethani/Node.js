@@ -143,8 +143,6 @@ const updateUser = async (req, res) => {
 const updateData = async (req, res) => {
     try {
         let id = req.body?.editid;
-        
-
         let old = await ProUser.findById(id);
         const image = req.files['imageFile'] ? req.files['imageFile'][0].path : '';
         

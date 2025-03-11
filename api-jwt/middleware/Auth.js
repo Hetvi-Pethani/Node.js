@@ -10,7 +10,7 @@ const verifyToken = async (req, res, next) => {
         }
 
         let newToken = token.slice(7);
-        JWT.verify(newToken, 'rnw', (err, decode) => {
+        JWT.verify(newToken, 'tech', (err, decode) => {
             if (err) {
                 return res.status(400).send({
                     success: false,
@@ -29,6 +29,17 @@ const verifyToken = async (req, res, next) => {
     }
 }
 
+const checkAdmin = async (req, res, next) => {
+    if (req.user?.role != 'admin') {
+        return res.status(403).send({
+            success: false,
+            message: "You are not admin"
+        })
+    }
+    return next();
+}
+
+
 module.exports = {
-    verifyToken
+    verifyToken,checkAdmin
 }

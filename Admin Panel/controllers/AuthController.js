@@ -1,4 +1,4 @@
-const User = require('../models/UserModel')
+const UserModel = require('../models/UserModel')
 
 const nodemailer = require('nodemailer');
 
@@ -77,59 +77,45 @@ const newpasswordPage = async (req, res) => {
     }
 }
 
+
 const forgotPassword = async (req, res) => {
     try {
-        let useremail = req.body.useremail;
-        
-        
-        const user = await User.findOne({ email: useremail })
-
+        const { useremail } = req.body;
+        let user = await UserModel.findOne({ email: useremail });
         if (!user) {
-            console.log('User is not found');
+            console.log("Email and Password not valid");
             return res.redirect('/');
         }
-
-        // Generate OTP
-        const otp = Math.floor(100000 + Math.random() * 900000);
-
-        // Configure transporter
-        const transporter = nodemailer.createTransport({
+        let otp = Math.floor(Math.random() * 1000000);
+        var transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
                 user: 'hetvi.pethani75@gmail.com',
-                pass: '*hetvi#775@pethani'
+                pass: 'uvvjhfmxayfiosae'
             }
         });
-
-        // Email options
-        const mailOptions = {
-            from:'hetvi.pethani75@gmail.com' ,
+        var mailOptions = {
+            from: 'hetvi.pethani75@gmail.com',
             to: useremail,
-            subject: 'OTP for password reset',
-            html: `<h2 style="color: #007BFF;">Your OTP is: ${otp}</h2>`
+            subject: 'Forgot Password',
+            html: `<h1 style='color:green'>Your Otp :- ${otp}</h1>`
         };
-
-        // Send email
         transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
-                console.log('Error sending email:', error);
-                return res.status(500).json({ message: 'Error sending email' });
+                console.log(error);
             } else {
+                let userotp = {
+                    otp: otp,
+                    email: useremail
+                }
+                res.cookie('userotp', userotp)
                 console.log('Email sent: ' + info.response);
-
-                // Store the OTP in a cookie
-                const auth = { email: useremail, otp: otp };
-                res.cookie('user', JSON.stringify(auth), {
-                    
-                    maxAge: 5 * 60 * 1000 // Cookie expires in 5 minutes
-                });
-
-                return res.redirect('/otp');
+                return res.redirect('/otp')
             }
         });
     } catch (err) {
-        console.log(err)
-        return false
+        console.log(err);
+        return false;
     }
 }
 

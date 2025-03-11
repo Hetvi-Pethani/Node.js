@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 const path = require('path');
 
 
-const databese = require('./config/db')
+const db = require('./config/db')
 
 
 app.use(express.static(path.join(__dirname, 'public')));
