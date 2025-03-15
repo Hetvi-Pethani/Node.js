@@ -1,73 +1,37 @@
 'use strict';
-$(document).ready(function() {
-    $(function() {
-	  $('input[name="daterange"]').daterangepicker({
-		opens: 'left'
-	  }, function(start, end, label) {
-		
-	  });
-	});
-	$(function() {
-	  $('input[name="datetimes"]').daterangepicker({
-		timePicker: true,
-		startDate: moment().startOf('hour'),
-		endDate: moment().startOf('hour').add(32, 'hour'),
-		locale: {
-		  format: 'M/DD hh:mm A'
-		}
-	  });
-	});
-	$(function() {
-	  $('input[name="birthday"]').daterangepicker({
-		singleDatePicker: true,
-		showDropdowns: true,
-		minYear: 1901,
-		maxYear: parseInt(moment().format('YYYY'),10)
-	  }, function(start, end, label) {
-		var years = moment().diff(start, 'years');
-		alert("You are " + years + " years old!");
-	  });
-	});
-	$(function() {
 
-		var start = moment().subtract(29, 'days');
-		var end = moment();
+(function () {
+  const d_week = new Datepicker(document.querySelector('#d_week'), {
+    buttonClass: 'btn',
+    daysOfWeekDisabled: [0,6]
+  });
 
-		function cb(start, end) {
-			$('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-		}
+  const d_highlight = new Datepicker(document.querySelector('#d_highlight'), {
+    buttonClass: 'btn',
+    daysOfWeekHighlighted: [1]
+  });
 
-		$('#reportrange').daterangepicker({
-			startDate: start,
-			endDate: end,
-			ranges: {
-			   'Today': [moment(), moment()],
-			   'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-			   'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-			   'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-			   'This Month': [moment().startOf('month'), moment().endOf('month')],
-			   'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-			}
-		}, cb);
+  const d_auto = new Datepicker(document.querySelector('#d_auto'), {
+    buttonClass: 'btn',
+    autohide: true
+  });
 
-		cb(start, end);
+  const d_disable = new Datepicker(document.querySelector('#d_disable'), {
+    buttonClass: 'btn',
+    datesDisabled: ['02/18/2022', '02/22/2022']
+  });
 
-	});
-	$(function() {
-	  $('input[name="datefilter"]').daterangepicker({
-		  autoUpdateInput: false,
-		  locale: {
-			  cancelLabel: 'Clear'
-		  }
-	  });
+  const d_today = new Datepicker(document.querySelector('#d_today'), {
+    buttonClass: 'btn',
+    todayHighlight: true
+  });
 
-	  $('input[name="datefilter"]').on('apply.daterangepicker', function(ev, picker) {
-		  $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
-	  });
+  const disp_week = new Datepicker(document.querySelector('#disp_week'), {
+    buttonClass: 'btn',
+    calendarWeeks: true
+  });
 
-	  $('input[name="datefilter"]').on('cancel.daterangepicker', function(ev, picker) {
-		  $(this).val('');
-	  });
-
-	});
-});
+  const datepicker_range = new DateRangePicker(document.querySelector('#datepicker_range'), {
+    buttonClass: 'btn'
+  });
+})();
