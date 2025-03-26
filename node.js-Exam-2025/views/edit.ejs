@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+    <!-- Add Bootstrap and Custom Styling -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ 
+    <style>
+        body {
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-image:url('img/bg.webp');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #d6888f;
+            text-align: center;
+        }
+
+
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .container {
+            width: 50%;
+            background-color: #dbbcbe7e;
+            padding: 20px;
+            border-radius: 10px;
+
+        }
+
+
+        label {
+            color: #d6888f;
+            font-weight: bold;
+            margin: 10px 7%;
+        }
+
+        input[type="text"],
+        input[type="file"] {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            margin: 10px 7%;
+           color: #9f7074;
+           font-size: 16px;
+        }
+
+        input[type="submit"] {
+            padding: 12px;
+            background-color: #d6888f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+           font-size: 16px;
+            width: 83%;
+            font-family: cursive;
+            margin: 0 7%;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #94676b;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+    
+    </style>
+</head>
+
+<body>
+    <div class="container form-container text-center">
+        <h2>Edit Product</h2>
+        <form action="/updatedata" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="editid" value="<%= single.id %>">
+            <table align="center">
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="pname" value="<%= single.pname %>"></td>
+                </tr>
+                <tr>
+                    <td>Price:</td>
+                    <td><input type="text" name="pid" value="<%= single.price %>"></td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td><input type="text" name="description" value="<%= single.description %>"></td>
+                </tr>
+                <tr>
+                    <td>SQty:</td>
+                    <td><input type="text" name="qty" value="<%= single.qty %>"></td>
+                </tr>
+                <tr>
+                    <td>Image:</td>
+                    <td>
+                        <input type="file" name="imageFile">
+                        <img src="<%= single.image %>" width="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Update"></td>
+                </tr>
+            </table>
+        </form>
+        <a href="/dashboard"><i class="fas fa-arrow-left"></i> Back</a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+    <style>
+        body {
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-image:url('img/bg.webp');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-items: center;
+            min-height: 100vh;
+
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #d6888f;
+            text-align: center;
+        }
+
+
+        .form-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .container {
+            width: 50%;
+            background-color: #dbbcbe7e;
+            padding: 20px;
+            border-radius: 10px;
+
+        }
+
+
+        label {
+            color: #d6888f;
+            font-weight: bold;
+            margin: 10px 7%;
+        }
+
+        input[type="text"],
+        input[type="file"],
+        input[type="number"] {
+            width: 80%;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            margin: 0 7%;
+            color: #d6888f;
+        }
+
+        input[type="submit"] {
+            padding: 12px;
+            background-color: #d6888f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+           font-size: 16px;
+            width: 83%;
+            font-family: cursive;
+            margin: 0 7%;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            color: #94676b;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+    
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Add Your Product </h2>
+        <form action="/insertdata" method="post" enctype="multipart/form-data">
+            <div class="f-data">
+                <div class="form-group">
+                    <label for="pname">Name:</label>
+                    <input type="text" id="pname" name="pname" placeholder="Enter the Product name" required>
+                </div>
+                <div class="form-group">
+                    <label for="Pid">Price:</label>
+                    <input type="number" id="price" name="price" placeholder="Enter the Price" required>
+                </div>
+                <div class="form-group">
+                    <label for="singer">Description:</label>
+                    <input type="text" id="description" name="description" placeholder="Enter the Description" required>
+                </div>
+                <div class="form-group">
+                    <label for="lines">sQty</label>
+                    <input type="text" id="qty" name="qty" placeholder="Enter the Stock-Quantity" required>
+                </div>
+                <div class="form-group">
+                    <label for="avatar">Image:</label>
+                    <input type="file" name="imageFile" required>
+                </div>
+
+            </div>
+            <input type="submit" value="Add User">
+        </form>
+        <a href="/dashboard">View Users</a>
+    </div>
+</body>
+
+</html>
